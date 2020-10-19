@@ -39,6 +39,7 @@
 
     <div id="signin_text" @click="redirectSignin">
       <small>Already registered? Sign in here!</small>
+      {{ key }}
     </div>
   </div>
 </template>
@@ -53,7 +54,8 @@ export default {
       password: "",
       confirmPassword: "",
       country: "usa",
-      terms: false
+      terms: false,
+      key: process
     };
   },
   methods: {
@@ -76,7 +78,7 @@ export default {
       //   .catch(error => console.log(error));
       axios
         .post(
-          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCiS_oP1lGExlJbqM4Kmqgp9WRwssMz-CQ"
+          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key="
         )
         .then(response => {
           console.log(response.data);
